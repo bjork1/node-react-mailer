@@ -3,7 +3,7 @@ const app = express();
 
 // Route Handlers
 app.get('/', (req, res) => {
-  res.send({ Bad: 'Mammajamma'});
+  res.send({ Bad: 'Mamajama'});
 });
 
 // Server
