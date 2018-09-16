@@ -8,6 +8,9 @@ mongoose.connect(keys.mongoURI);
 // Execute passport.js to configure Passport.js
 require('./services/passport');
 
+// Execute mongoose to set up User model
+require('./models/User');
+
 /**
  * Create the app object and pass it as a parameter to configure authentication routes
  * 
