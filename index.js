@@ -1,33 +1,20 @@
 const express = require('express');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./config/keys.js');
+const mongoose = require('mongoose');
+const keys = require('./config/keys')
 
+// Connect to MLab DB
+mongoose.connect(keys.mongoURI);
+
+// Execute passport.js to configure Passport.js
+require('./services/passport');
+
+/**
+ * Create the app object and pass it as a parameter to configure authentication routes
+ * 
+ * TODO: Refactor to use express.Router
+ */
 const app = express();
-
-// Init Google OAuth 2.0 Strategy
-passport.use(
-  new GoogleStrategy({
-    clientID: keys.googleClientID,
-    clientSecret: keys.googleClientSecret,
-    callbackURL: '/auth/google/callback'
-  }, (accessToken) => {
-    console.log(accessToken);
-  })
-);
-
-// Google Authentication Route Handler
-app.get(
-  '/auth/google', 
-  passport.authenticate('google', {
-    scope: ['profile', 'email']
-  })
-);
-
-app.get(
-  '/auth/google/callback',
-  passport.authenticate('google')
-);
+require('./routes/authRoutes')(app);
 
 // Application Route Handlers
 app.get('/', (req, res) => {
