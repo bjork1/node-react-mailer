@@ -11,9 +11,9 @@ passport.use(
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
     callbackURL: '/auth/google/callback'
-  }), (accessToken) => {
+  }, (accessToken) => {
     console.log(accessToken);
-  }
+  })
 );
 
 // Google Authentication Route Handler
@@ -22,9 +22,14 @@ app.get(
   passport.authenticate('google', {
     scope: ['profile', 'email']
   })
-)
+);
 
-// Route Handlers
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google')
+);
+
+// Application Route Handlers
 app.get('/', (req, res) => {
   res.send({ Hello: 'World'});
 });
