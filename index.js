@@ -13,13 +13,8 @@ require('./models/User');
 // Execute passport.js to configure Passport.js
 require('./services/passport');
 
-/**
- * Create the app object and pass it as a parameter to configure authentication routes
- * 
- * TODO: Refactor to use express.Router
- */
+// Define the app object
 const app = express();
-require('./routes/authRoutes')(app);
 
 // Use cookies for Passport
 app.use(
@@ -30,6 +25,13 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+/**
+ * Pass the app object as a parameter to configure authentication routes
+ * 
+ * TODO: Refactor to use express.Router
+ */
+require('./routes/authRoutes')(app);
 
 // Application Route Handlers
 app.get('/', (req, res) => {
