@@ -5,11 +5,12 @@ const keys = require('./config/keys')
 // Connect to MLab DB
 mongoose.connect(keys.mongoURI);
 
+// Execute mongoose to set up User model before executing passport.js which has data from Mongoose
+require('./models/User');
+
 // Execute passport.js to configure Passport.js
 require('./services/passport');
 
-// Execute mongoose to set up User model
-require('./models/User');
 
 /**
  * Create the app object and pass it as a parameter to configure authentication routes
