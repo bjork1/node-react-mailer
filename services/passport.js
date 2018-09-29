@@ -28,11 +28,10 @@ passport.use(
     const existingUser = await User.findOne({ googleID: profile.id })
     if (existingUser) {
       // We already have a record with the given profile.id
-      authComplete(null, existingUser); // null: no error occurred 
-    } else {
-      // Mongoose does not persist this record unless save() is called with it.
-      const user = await new User({ googleID: profile.id }).save()
-      authComplete(null, user);
+      return authComplete(null, existingUser); // null: no error occurred 
     }
+    // Mongoose does not persist this record unless save() is called with it.
+    const user = await new User({ googleID: profile.id }).save()
+    authComplete(null, user);
   })
 );
