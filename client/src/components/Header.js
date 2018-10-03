@@ -6,7 +6,7 @@ class Header extends Component {
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container">
           <a className="navbar-brand" href="/">Emily</a>
-          <a href="/" role="button">Login with Google</a>
+          <a href="/auth/google" role="button">Login with Google</a>
         </div>
       </nav>
     )
