@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-const fetchUser = () => {
+export const fetchUser = () => {
   /**
    * With redux-thunk, rather than returning an action
    * from this action creator 'fetchUser', whenever the action
