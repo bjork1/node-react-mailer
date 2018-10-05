@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import StripePayments from './StripePayments';
 
 class Header extends Component {
   renderContent() {
@@ -10,7 +11,10 @@ class Header extends Component {
       case false: 
         return <a href="/auth/google">Login with Google</a>;
       default:
-        return <a href="/api/logout">Logout</a>;
+        return [
+          <StripePayments />,
+          <a href="/api/logout">Logout</a>
+        ];
     }
   }
 
@@ -19,7 +23,10 @@ class Header extends Component {
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container">
           <Link className="navbar-brand" to={ this.props.auth ? '/surveys' : '/' }>Emily</Link>
-          {this.renderContent()}
+          <ul className="navbar-nav ml-auto">
+            {this.renderContent()}
+          </ul>
+          
         </div>
       </nav>
     )
