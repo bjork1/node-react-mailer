@@ -9,11 +9,12 @@ class Header extends Component {
       case null:
         return;
       case false: 
-        return <li><a className="btn btn-sm btn-secondary mx-1" href="/auth/google">Login with Google</a></li>;
+        return <li><a className="btn btn-sm btn-warning mx-1" href="/auth/google">Login with Google</a></li>;
       default:
         return [
-          <li key="1"><StripePayments /></li> ,
-          <li key="2"><a className="btn btn-sm btn-secondary mx-1" href="/api/logout">Logout</a></li>
+          <li key="3" className="my-1 mx-1">Credits: {this.props.auth.credits}</li>,
+          <li key="1"><StripePayments /></li>,
+          <li key="2"><a className="btn btn-sm btn-warning mx-1" href="/api/logout">Logout</a></li>
         ];
     }
   }
