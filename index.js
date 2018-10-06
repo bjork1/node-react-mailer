@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 
 // Connect to MLab DB
@@ -15,6 +16,9 @@ require('./services/passport');
 
 // Define the app object
 const app = express();
+
+// Body Parser middleware
+app.use(bodyParser.json());
 
 // Use cookies for Passport
 app.use(
