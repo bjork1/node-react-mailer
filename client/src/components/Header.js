@@ -23,7 +23,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container">
-          <Link className="navbar-brand" to={ this.props.auth ? '/surveys' : '/' }>Emily</Link>
+          <Link className="navbar-brand" to={ this.props.auth ? '/surveys' : '/' }>MailShrimp</Link>
 
           <ul className="navbar-nav ml-auto" style={{ flexDirection: 'row' }}>
             {this.renderContent()}
