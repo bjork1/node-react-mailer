@@ -32,6 +32,7 @@ app.use(passport.session());
  * TODO: Refactor to use express.Router
  */
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
 
 // Application Route Handlers
 app.get('/', (req, res) => {
