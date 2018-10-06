@@ -38,10 +38,10 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
-// Application Route Handlers
-app.get('/', (req, res) => {
-  res.send({ Hello: 'World'});
-});
+// // Application Route Handlers
+// app.get('/', (req, res) => {
+//   res.send({ Hello: 'World'});
+// });
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve production assets
