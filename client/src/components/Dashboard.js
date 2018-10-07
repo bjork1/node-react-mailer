@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
@@ -10,6 +11,8 @@ const Dashboard = () => {
         <li><strong>Test Expiration Date:</strong> 12/22</li>
         <li><strong>Test CCV Number:</strong> 222</li>
       </ul>
+      <br />
+      <Link to="/surveys/new">Create a Survey</Link>
     </div>
   )
 }
