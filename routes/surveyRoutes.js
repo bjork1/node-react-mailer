@@ -16,7 +16,7 @@ module.exports = app => {
       // Convert array of strings into a list of objects
       recipients: recipients.split(',').map(email =>  ({ email: email.trim() })),
       _user: req.user.id,
-      dateSent: Date.now(),
-    })
+      dateSent: Date.now()
+    });
   });
 };
