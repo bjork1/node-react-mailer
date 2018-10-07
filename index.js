@@ -11,6 +11,9 @@ mongoose.connect(keys.mongoURI);
 // Execute mongoose to set up User model before executing passport.js which has data from Mongoose
 require('./models/User');
 
+// Execute mongoose to set up Survey Model
+require('./models/Survey');
+
 // Execute passport.js to configure Passport.js
 require('./services/passport');
 
