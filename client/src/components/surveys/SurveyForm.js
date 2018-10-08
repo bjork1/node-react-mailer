@@ -28,7 +28,7 @@ class SurveyForm extends Component {
         <div className="form-group col-sm-8">
           <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
               {this.renderFields()}
-              <button type="submit" className="btn btn-warning mr-2">Submit</button>
+              <button type="submit" className="btn btn-warning mr-2" style={{ backgroundColor: '#ffb982', borderColor: '#ffb982' }}>Submit</button>
               <Link to="/surveys" className="btn btn-light">
                 Cancel
               </Link>
@@ -43,6 +43,18 @@ class SurveyForm extends Component {
   };
 };
 
+function validate(values) {
+  const errors= {};
+
+  // Ensure there is a title:
+  if (!values.title) {
+    errors.title = 'You must provide a title.'
+  }
+
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'surveyForm'
 })(SurveyForm);
