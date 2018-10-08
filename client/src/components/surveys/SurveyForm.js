@@ -19,11 +19,21 @@ class SurveyForm extends Component {
 
   render() {
     return (
-      <div className="container">
-        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
-            {this.renderFields()}
-            <button type="submit" className="btn btn-warning">Submit</button>
-        </form>
+      <div>
+        <div className="form-row">
+        
+        <div className="form-group col-sm-2"></div>
+
+        <div className="form-group col-sm-8">
+          <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+              {this.renderFields()}
+              <button type="submit" className="btn btn-warning">Submit</button>
+          </form>
+        </div>
+        
+        <div className="form-group col-sm-2"></div>
+        
+        </div>
       </div>
     );
   };
