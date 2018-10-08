@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
   { label: 'Survey Title', name: 'title'},
@@ -46,9 +47,25 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors= {};
 
-  // Ensure there is a title:
+  // Ensure there is a survey title:
   if (!values.title) {
     errors.title = 'You must provide a title.'
+  }
+
+  // Ensure there is an email subject:
+  if (!values.subject) {
+    errors.subject = 'You must provide a subject.'
+  }
+
+  // Ensure there is am email body:
+  if (!values.body) {
+    errors.body = 'You must provide a body.'
+  }
+
+  errors.emails = validateEmails(values.emails || '');
+
+  if (!values.emails) {
+    errors.emails = 'You must provide a comma separated list of emails. E.g., test@example.com, test2@example.com, etc.'
   }
 
   return errors;
