@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StripePayments from './StripePayments';
 
 const Dashboard = () => {
   return (
     <div className="container">
-      <div class="alert alert-warning mt-3" role="alert">
-        <h4 class="alert-heading">This application is in Test Mode</h4>
+      <div className="alert alert-warning mt-3" role="alert">
+        <h4 className="alert-heading">This application is in Test Mode</h4>
         <hr />
-        <p>To use this application, please use the follwing test credit card credentials:</p>
+        <p>To use this application, you must add credits to your account with the "Add Credits" button in the header. Please use the follwing test credit card credentials when prompted:</p>
         <ul>
           <li><strong>Credit Card Number:</strong> 4242 4242 4242 4242</li>
           <li><strong>Test Expiration Date:</strong> 12/22</li>
