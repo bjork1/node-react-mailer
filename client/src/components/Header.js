@@ -34,7 +34,7 @@ class Header extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto" style={{ flexDirection: 'row' }}>
+            <ul className="navbar-nav ml-auto" style={{ flexDirection: 'row' /* For Mobile Right-Align: justify-content: flex-end; */ }}>
               {this.renderContent()}
             </ul>
           </div>

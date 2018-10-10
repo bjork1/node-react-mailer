@@ -4,17 +4,11 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
-
-const FIELDS = [
-  { label: 'Survey Title', name: 'title'},
-  { label: 'Subject Line', name: 'subject'},
-  { label: 'Email Body', name: 'body'},
-  { label: 'Recipient List', name: 'emails'},
-]
+import formFields from './formFields';
 
 class SurveyForm extends Component {
   renderFields() {
-    return FIELDS.map( ({ label, name }) =>
+    return formFields.map( ({ label, name }) =>
 		  <Field key={name} component={SurveyField} type="text" label={label} name={name} />
 		);
   }
@@ -27,9 +21,9 @@ class SurveyForm extends Component {
         <div className="form-group col-sm-2"></div>
 
         <div className="form-group col-sm-8">
-          <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+          <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
               {this.renderFields()}
-              <button type="submit" className="btn btn-warning mr-2" style={{ backgroundColor: '#ffb982', borderColor: '#ffb982' }}>Submit</button>
+              <button type="submit" className="btn btn-warning mr-2" style={{ backgroundColor: '#ffb982', borderColor: '#ffb982' }}>Review</button>
               <Link to="/surveys" className="btn btn-light">
                 Cancel
               </Link>
@@ -73,5 +67,6 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'surveyForm'
+  form: 'surveyForm',
+  destroyOnUnmount: false,
 })(SurveyForm);
