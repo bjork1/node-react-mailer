@@ -56,10 +56,10 @@ function validate(values) {
     errors.body = 'You must provide a body.'
   }
 
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
 
-  if (!values.emails) {
-    errors.emails = 'You must provide a comma separated list of emails. E.g., test@example.com, test2@example.com, etc.'
+  if (!values.recipients) {
+    errors.recipients = 'You must provide a comma separated list of emails. E.g., test@example.com, test2@example.com, etc.'
   }
 
   return errors;
