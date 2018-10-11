@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SurveyList from './surveys/SurveyList'
 
 const Dashboard = () => {
   return (
@@ -17,6 +18,8 @@ const Dashboard = () => {
 
       <h3 className="mt-3">Dashboard</h3>
       <Link to="/surveys/new"className="btn btn-warning" style={{ backgroundColor: '#ffb982', borderColor: '#ffb982' }}>Create a New Survey</Link>
+
+      <SurveyList />
     </div>
   )
 }
